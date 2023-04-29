@@ -1,22 +1,31 @@
 package com.example.demo.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.lang.NonNull;
+
+import javax.persistence.*;
 
 @Entity
-public class Customer {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false, length = 45)
     private String firstName;
+    @Column(nullable = true, length = 45)
     private String lastName;
+    @Column(nullable = false, length = 45)
+    private String usuario;
 
-    protected Customer() {}
+    @Column(nullable = false, length = 45)
+    private String contrasena;
+    @OneToOne
+    @JoinColumn(name = "id_perfil")
+    private Perfil id_perfil;
 
-    public Customer(String firstName, String lastName) {
+    protected Usuario() {}
+
+    public Usuario(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
