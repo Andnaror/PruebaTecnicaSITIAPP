@@ -6,7 +6,7 @@ import javax.persistence.*;
 //@Index(name = "Primary",columnList = "id_perfil")
 public class Perfil {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_perfil")
     private Integer id_perfil;
 

@@ -15,4 +15,28 @@ public class Factura_detalle {
         this.cantidad = cantidad;
         this.valor_unitario = valor_unitario;
     }
+
+    public Factura_detalleId getFactura_detalleId() {
+        return factura_detalleId;
+    }
+
+    public void setFactura_detalleId(Factura_detalleId factura_detalleId) {
+        this.factura_detalleId = factura_detalleId;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Integer getValor_unitario() {
+        return valor_unitario;
+    }
+
+    public void setValor_unitario(Integer valor_unitario) {
+        this.valor_unitario = valor_unitario;
+    }
 }

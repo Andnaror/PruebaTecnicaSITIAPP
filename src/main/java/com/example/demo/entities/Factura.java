@@ -3,12 +3,13 @@ package com.example.demo.entities;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
+
 
 @Entity
 public class Factura {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer consecutivo;
     @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Cliente cliente;
@@ -18,7 +19,7 @@ public class Factura {
     private Date fecha;
 
     @OneToMany(mappedBy = "factura_detalleId.consecutivo",cascade = CascadeType.ALL)
-    private Set<Factura_detalle> factura_detalles;
+    private List<Factura_detalle> factura_detalles;
     protected Factura(){}
 
     public Factura(Cliente cliente, Date fecha) {
@@ -40,5 +41,13 @@ public class Factura {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public List<Factura_detalle> getFactura_detalles() {
+        return factura_detalles;
+    }
+
+    public Integer getConsecutivo() {
+        return consecutivo;
     }
 }

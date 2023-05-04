@@ -6,7 +6,7 @@ import java.util.Set;
 @Entity
 public class Productos {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer productoId;
     @Column(length = 100)

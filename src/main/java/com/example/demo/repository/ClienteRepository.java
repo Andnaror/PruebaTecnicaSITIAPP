@@ -7,6 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 //import java.util.List;
 
 @Transactional
-public interface ClienteRepository extends JpaRepository<Cliente,Long> {
-    //List<Cliente> findByObjectId(Long idCliente);
+public interface ClienteRepository extends JpaRepository<Cliente,Integer> {
+    //List<Cliente> findByTipoidentificacion(Integer tIden);
 }

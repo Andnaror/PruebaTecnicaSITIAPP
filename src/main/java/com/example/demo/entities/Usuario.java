@@ -8,8 +8,8 @@ import javax.persistence.*;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
     @Column(nullable = false, length = 45)
     private String firstName;
     @Column(nullable = true, length = 45)
@@ -37,7 +37,7 @@ public class Usuario {
                 id, firstName, lastName);
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -48,4 +48,36 @@ public class Usuario {
     public String getLastName() {
         return lastName;
 }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public Perfil getId_perfil() {
+        return id_perfil;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public void setId_perfil(Perfil id_perfil) {
+        this.id_perfil = id_perfil;
+    }
 }

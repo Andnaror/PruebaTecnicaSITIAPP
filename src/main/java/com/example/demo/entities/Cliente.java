@@ -1,5 +1,4 @@
 package com.example.demo.entities;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -7,23 +6,24 @@ import java.util.Date;
 @Entity
 public class Cliente {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @ManyToOne(optional = false, fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name="tipo_identificacion")
-    private Tipos_identificaciones tipo_identificacion;
+    private TiposIdentificaciones tipo_identificacion;
     @Column(length = 100)
     private String identificacion;
     @Column(length = 100)
     private String razon_social;
     @Column
+    @Temporal(TemporalType.DATE)
     private Date fecha_registro;
     @Column(length = 1)
     private String estado;
 
     protected Cliente(){}
 
-    public Cliente(Tipos_identificaciones tipo_identificacion, String identificacion, String razon_social, Date fecha_registro, String estado) {
+    public Cliente(TiposIdentificaciones tipo_identificacion, String identificacion, String razon_social, Date fecha_registro, String estado) {
         this.tipo_identificacion = tipo_identificacion;
         this.identificacion = identificacion;
         this.razon_social = razon_social;
@@ -31,11 +31,11 @@ public class Cliente {
         this.estado = estado;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public Tipos_identificaciones getTipo_identificacion() {
+    public TiposIdentificaciones getTipo_identificacion() {
         return tipo_identificacion;
     }
 
@@ -55,7 +55,7 @@ public class Cliente {
         return estado;
     }
 
-    public void setTipo_identificacion(Tipos_identificaciones tipo_identificacion) {
+    public void setTipo_identificacion(TiposIdentificaciones tipo_identificacion) {
         this.tipo_identificacion = tipo_identificacion;
     }
 

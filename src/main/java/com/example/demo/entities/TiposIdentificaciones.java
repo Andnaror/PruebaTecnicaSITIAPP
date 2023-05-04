@@ -6,9 +6,10 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Tipos_identificaciones {
+@Table(name = "tipos_identificaciones")
+public class TiposIdentificaciones {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tipo_identificacion;
     @Column(length = 3)
     private String abreviatura;
@@ -20,9 +21,9 @@ public class Tipos_identificaciones {
 
 
 
-    protected Tipos_identificaciones(){}
+    protected TiposIdentificaciones(){}
 
-    public Tipos_identificaciones(Integer tipo_identificacion, String abreviatura, String descripcion){
+    public TiposIdentificaciones(Integer tipo_identificacion, String abreviatura, String descripcion){
         this.tipo_identificacion = tipo_identificacion;
         this.abreviatura = abreviatura;
         this.descripcion = descripcion;
